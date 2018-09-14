@@ -1,9 +1,10 @@
-h1 {
+#title {
     font-family: "Times New Roman", Times, serif;
-    font-size: 40px;
+    font-size: 50px;
+    color:blue;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 #gameField{
     background-color: aqua;
@@ -14,6 +15,8 @@ h1 {
     width: 500px;
     margin: auto;
     border: 3px solid #73AD21;
+    background-color: antiquewhite;
+    font-size:40px; 
 
 }
 #userInput, #score {
@@ -22,6 +25,7 @@ h1 {
     width: 500px;
     margin: auto;
     border: 3px solid #73AD21;
+    background-color: antiquewhite;
 }
 #hangman {
     text-align: center;
@@ -36,4 +40,6 @@ h1 {
     width: 500px;
     margin: auto;
     border: 3px solid #73AD21;
+    background-color: antiquewhite;
+    font-size:40px; 
 }

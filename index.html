@@ -9,19 +9,22 @@
         crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
 
-    <title>Hangman</title>
+    
+
+    <title >Hangman</title>
 
 </head>
 
 <body>
-    <!-- <body background="assets/images/castle.jpg"> -->
+    <body background="assets/images/castle.jpg">
 
-    <h1 color:blue><strong>Hangman</strong></h1>
+    <h1 id="title"><strong >Hangman</strong></h1>
 
     <!-- container to hold the game on my page  -->
 
-    <div class="gameField">
+    <div class="gameField">;
         <!-- display the blanks for the current word  -->
         <div id="currentWord">
             <h1>Pick a Letter</h1>
@@ -31,7 +34,11 @@
         </div>
         <!-- number of guesses user has  -->
         <div id="userInput">
-            <h1 id="Guesses">Number of Guesses: </h1>
+           
+            <!-- //populate the hangman graphics, but we never learned how to pinpoint a specific element on a jpg  -->
+            <!-- <img id="hangman" src="assets/images/hangmanStrip.jpg" alt="Hangman" width="216" height="224px"> -->
+        
+         
         </div>
         <div id="score"></div>
 
@@ -52,16 +59,31 @@
         var guessWord = "computer";
         var wordLine = []; //used to create an empty array of the guessWord so we can test if letter is in array
         var userGuess; //the letter the user enters 
-        //var numberTurns = 14; //decrements with each user guess 
+        var totalGuesses = 14;
         var wrongGuesses = [];
-        var totalGuesses = 14; 
- 
+       
+        document.getElementById("score").innerHTML = "Total Guesses: 14"  + 
+                        "<br> Your Wins: 0"  +
+                        "<br> Computer Wins: 0" ;
         guessWordDashLines(guessWord);
+        
+        for (var a = 14; a > 0; a--) {
+                var totalGuesses = a; 
+                // var userWins= 0; 
+                // var computerWins=0;
 
-        for (var a = 0; a < 14; a++) {
+                console.log(totalGuesses);
+                document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses;
+
+                // document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses + 
+                //         "<br> Your Wins: " + userWins +
+                //         "<br> Computer Wins: " + computerWins;
+
             console.log(a);
-            totalGuesses--;
+                    // totalGuesses = parseInt(totalGuesses);
             //capture user's key press
+
+            // document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses;
         }
         document.body.addEventListener('keyup', function () {
             userGuess = event.key;
@@ -75,12 +97,13 @@
             // console.log(isLetter(userGuess));
 
             //call isLetterInWord function to validate if it's a letter(s) located }within the guessWord
-            //if true then replace dashed line on the screen in place of correct letter(s)
-
-            
+            //if true then replace dashed line on the screen in place of correct letter(s)        
             
                 for (var b = 0; b <= guessWord.length; b++) {
                     console.log(b);
+                    
+                    var totalGuesses = 14- parseInt(guessWord.lenth) ; 
+                    
                     
 
                     if (userGuess === guessWord[b]) {
