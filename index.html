@@ -1,193 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    <title>Document</title>
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+      
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+        <div class="container">
+                <div class="col-lg-12">
+                        <div id="intoTitle">
+                                <h1 id="top">Crystal Collection Game</h1>
+                        </div>"
+                    </div>        
+                <div class="row">
+            
+                  <!-- Crystal Selection  -->
+                  <div class="col-lg-7">
+                    <div class="card">
+                      <h3 class="card-header">Crystals</h3>
+                      
+                      <div class="card-body">
+                            <div id="gemCollection">
+                                    <img id="crystalGem" src="assets/images/crystal.png"  >
+                                    <img id="redGem" src="assets/images/garnet.png" >
+                                    <img id="orangeGem" src="assets/images/orange.png" >
+                                    <img id="blueGem" src="assets/images/sapphire.png">
+                              </div>      
+                              <div id="gemScore">
+                                    <button id="crystalScore" value="">0</button>
+                                    <button id="redScore" value="">0</button>
+                                    <button id="orangeScore" value="">0</button>
+                                    <button id="blueScore" value="">0</button>
+                                    <!-- <button id="start">Start </button> -->
+                            </div>    
+                      </div>
+                    </div>
+                  </div>
+            
+                  <!-- Instructions -->
+                  <div class="col-lg-5">
+                    <div class="card">
+                      <h3 class="card-header">Instructions:</h3>
+                      <div class="card-body">
+                        <h1 id="instructions"><div class="card">
+                            
+                                <p >Click on the number button under gem to add.</p> 
+                                <p> Click on the right number of gems to equal the value. </p> 
+                                <p>If you exceed the "Number to Equal", you lose.</p> 
+                               
+                                </h1>
+                        
+                      </div>
+                    </div>
+                  </div>
+                <div row><h1>.....................................................................................................................</h1></div>>
+                <div class="row"></div>
+                <div class="col-lg-4">
+                        <div class="card">
+                          <h3 class="card-header">Number to equal!</h3>
+                          
+                          <div class="card-body">
+                                <div id="equalNumber">
+                                        
+                                  </div>      
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                            <div class="card">
+                              <h3 class="card-header">Score:</h3>
+                              
+                              <div class="card-body">
+                                    <div id="wins"><p>Wins:</p></div>
+                                    <div id="loses"><p>Loses:</p></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                                <div class="card">
+                                  <h3 class="card-header">Gem Score:</h3>
+                                  
+                                  <div class="card-body">
+                                        <div id="currentScore">
+                                            <div id="currentNumber"></div>
+                                  </div>
+                                </div>
+                              </div>
+              </div>
+            
+          
+            
+            
+                        </div></div>
+                        
+                </div>
+</head>
+<body>
+        <body background="assets/images/gradient.jpg">
+            
+                
+                 <script type="text/javascript">
+                    $(document).ready(function(){
+                        // <!-- make variables -->
+                        var userGameScore = 0; 
+                        var numToMatch = 0;
+                        var userWins = 0; 
+                        var userLoses = 0;
+                        var crystalGem = 0;
+                        var redGem = 0; 
+                        var orangeGem = 0; 
+                        var blueGem = 0; 
+                        var addNumber = 0; 
+                       
+                        
+                            userGameScore = 0; 
+            
+                            $('currentScore').empty();
+            
+                                       
+                            var allGems=[];
+                          
+                            numToMatch = document.getElementById("equalNumber").innerHTML = Math.floor((Math.random() * 120) + 19);
+            
+                            var crystalGem=$(".crystal");
+                            var redGem =$(".red");
+                            var orangeGem=$(".orange");
+                            var blueGem=$(".blue");
+            
+                           
+                            console.log(numToMatch);
+
+                            crystalGem = document.getElementById("crystalScore").innerHTML = Math.floor((Math.random() * 12) + 1);
+                            redGem = document.getElementById("redScore").innerHTML = Math.floor((Math.random() * 12) + 1);
+                            blueGem = document.getElementById("blueScore").innerHTML = Math.floor((Math.random() * 12) + 1);
+                            orangeGem = document.getElementById("orangeScore").innerHTML = Math.floor((Math.random() * 12) + 1);
+                            document.getElementById("wins").innerHTML = userWins ;
+                            document.getElementById("loses").innerHTML = userLoses ;
+                            //user clicks a gem and the current value displays in the number to match box 
+                            //with each click the values of the gems are totaled 
+                            //if the user matches the value then the user wins and wins value is incremented and displayed 
+                            //else the computer wins and loses value incremented one 
+                            //comment
+                            
+                             $( "#crystalScore" ).on('click', function() {
+                                addNumber = $(this).html() ;
+                                console.log(addNumber); 
+                                addScore(addNumber);
+                                // $('#crystalScore').on('click', function () {
+                                //     addScore($(this).html());
+                                // });
+                                
+                            });
+                            function addScore(number){
+
+                            }
+
+                  })
+
+                  
+            
+            
+                </script> 
+            
 
     
-
-    <title >Hangman</title>
-
-</head>
-
-<body>
-    <body background="assets/images/castle.jpg">
-
-    <h1 id="title"><strong >Hangman</strong></h1>
-
-    <!-- container to hold the game on my page  -->
-
-    <div class="gameField">;
-        <!-- display the blanks for the current word  -->
-        <div id="currentWord">
-            <h1>Pick a Letter</h1>
-        </div>
-        <div id="wordDashes">
-
-        </div>
-        <!-- number of guesses user has  -->
-        <div id="userInput">
-           
-            <!-- //populate the hangman graphics, but we never learned how to pinpoint a specific element on a jpg  -->
-            <!-- <img id="hangman" src="assets/images/hangmanStrip.jpg" alt="Hangman" width="216" height="224px"> -->
-        
-         
-        </div>
-        <div id="score"></div>
-
-        <!-- eventually I would like to learn to draw a hang man onto the screen for each wrong letter -->
-
-        <div id="hangman">
-
-        </div>
-        <!-- this is where the wrong letters are placed so the user knows what they guessed  -->
-
-        <div id="wrongLetters">
-            <h1 id="badLetters">Incorrect Letters: </h1>
-        </div>
-        <div id="wrongGuessLetters"></div>
-    </div>
-
-    <script text="text/javascript">
-        var guessWord = "computer";
-        var wordLine = []; //used to create an empty array of the guessWord so we can test if letter is in array
-        var userGuess; //the letter the user enters 
-        var totalGuesses = 14;
-        var wrongGuesses = [];
-       
-        document.getElementById("score").innerHTML = "Total Guesses: 14"  + 
-                        "<br> Your Wins: 0"  +
-                        "<br> Computer Wins: 0" ;
-        guessWordDashLines(guessWord);
-        
-        for (var a = 14; a > 0; a--) {
-                var totalGuesses = a; 
-                // var userWins= 0; 
-                // var computerWins=0;
-
-                console.log(totalGuesses);
-                document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses;
-
-                // document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses + 
-                //         "<br> Your Wins: " + userWins +
-                //         "<br> Computer Wins: " + computerWins;
-
-            console.log(a);
-                    // totalGuesses = parseInt(totalGuesses);
-            //capture user's key press
-
-            // document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses;
-        }
-        document.body.addEventListener('keyup', function () {
-            userGuess = event.key;
-            console.log(userGuess);
-            var isMatch= false;
-            //call isLetter function to validate proper character
-            //if false then prompt for proper character 
-            //if true then below
-
-            // isLetter(userGuess) ;
-            // console.log(isLetter(userGuess));
-
-            //call isLetterInWord function to validate if it's a letter(s) located }within the guessWord
-            //if true then replace dashed line on the screen in place of correct letter(s)        
-            
-                for (var b = 0; b <= guessWord.length; b++) {
-                    console.log(b);
-                    
-                    var totalGuesses = 14- parseInt(guessWord.lenth) ; 
-                    
-                    
-
-                    if (userGuess === guessWord[b]) {
-                        
-                        //   //correct guess
-                        // then put guess word into each place of userGuess output 
-                        wordLine[b] = guessWord[b];
-
-
-                        var userAnswer = "";
-
-                        for (i = 0; i < guessWord.length; i++) {
-                            userAnswer = userAnswer + wordLine[i] + " ";
-                        }
-                        document.getElementById("wordDashes").innerHTML = userAnswer;
-                        isMatch= true; 
-                    } 
-                     
-
-                }
-                if (!isMatch){
-                wrongGuesses.push(userGuess);
-                document.getElementById("wrongGuessLetters").innerHTML = wrongGuesses;
-                };
-                } );
-                // else {
-             
-            //}
-
-            // if (userGuess === guessWord[b])
-            //document.getElementById("wrongGuessLetters").innerHTML = wrongGuesses;
-           
-            //if false> then add incorrect letter to the div id="wrongLetters" 
-            //decrement the counter in div="hangman field"
-
-
-        
-        
-
-
-        function guessWordDashLines(guessWord) {
-            var randomLength = guessWord.length;
-            var userAnswer = " ";
-
-            for (i = 0; i < guessWord.length; i++) {
-                wordLine[i] = "_";
-                userAnswer = userAnswer + wordLine[i] + " ";
-            }
-
-
-            // document.getElementById("#currentWord").innerText="wordLine";
-            document.getElementById("wordDashes").innerHTML = userAnswer;
-        }
-
-
-        function isLetter(userGuess) {
-            var letters = /^[A-Za-z]+$/;
-            if (userGuess.valueOf().match(letters)) {
-
-                return true;
-            }
-            else {
-                alert('Please input ONE alphabet letter only.');
-                return false;
-            }
-        }
-    </script>
-
 </body>
-
 </html>
-
-<!-- //psuedo code  -->
-<!-- load page, capture the word for user to guess (eventually this would be an array that is randomally created)
-    have the castle background 
-    give the user the option to play music 
-take the guess word and generate the number of spaces for the number of letters (this is an array to hold both the dashes and the correct letters)
-get user input from keystroke assign to variable 
-first check to see if the key is a letter by calling isLetter() 
-return true to continue, return false to prompt user to try again 
-next check to see if the key stroke letter from the user is in the word to guess 
-    if it is one of the letters then change the dash into the correct letter. 
-        in the div that keeps track of the score decrement the number for the user 
-            state how many guesses 
-            when user gets all the letters then "you win"
-
-    if it is not one of the letters then show the wrong letters in the wrong letter div on the screen  -->

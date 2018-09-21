@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+
+    
+
+    <title >Hangman</title>
+
+</head>
+
+<body>
+    <body background="assets/images/castle.jpg">
+
+    <h1 id="title"><strong >Hangman</strong></h1>
+
+    <!-- container to hold the game on my page  -->
+
+    <div class="gameField">;
+        <!-- display the blanks for the current word  -->
+        <div id="currentWord">
+            <h1>Pick a Letter</h1>
+        </div>
+        <div id="wordDashes">
+
+        </div>
+        <!-- number of guesses user has  -->
+        <div id="userInput">
+           
+            <!-- //populate the hangman graphics, but we never learned how to pinpoint a specific element on a jpg  -->
+            <!-- <img id="hangman" src="assets/images/hangmanStrip.jpg" alt="Hangman" width="216" height="224px"> -->
+        
+         
+        </div>
+        <div id="score"></div>
+
+        <!-- eventually I would like to learn to draw a hang man onto the screen for each wrong letter -->
+
+        <div id="hangman">
+
+        </div>
+        <!-- this is where the wrong letters are placed so the user knows what they guessed  -->
+
+        <div id="wrongLetters">
+            <h1 id="badLetters">Incorrect Letters: </h1>
+        </div>
+        <div id="wrongGuessLetters"></div>
+    </div>
+
+    <script text="text/javascript">
+        var guessWord = "computer";
+        var wordLine = []; //used to create an empty array of the guessWord so we can test if letter is in array
+        var userGuess; //the letter the user enters 
+        var totalGuesses = 14;
+        var wrongGuesses = [];
+       
+        document.getElementById("score").innerHTML = "Total Guesses: 14"  + 
+                        "<br> Your Wins: 0"  +
+                        "<br> Computer Wins: 0" ;
+        guessWordDashLines(guessWord);
+        
+        for (var a = 14; a > 0; a--) {
+                var totalGuesses = a; 
+                // var userWins= 0; 
+                // var computerWins=0;
+
+                console.log(totalGuesses);
+                document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses;
+
+                // document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses + 
+                //         "<br> Your Wins: " + userWins +
+                //         "<br> Computer Wins: " + computerWins;
+
+            console.log(a);
+                    // totalGuesses = parseInt(totalGuesses);
+            //capture user's key press
+
+            // document.getElementById("score").innerHTML = "Total Guesses: " +totalGuesses;
+        }
+        document.body.addEventListener('keyup', function () {
+            userGuess = event.key;
+            console.log(userGuess);
+            var isMatch= false;
+            //call isLetter function to validate proper character
+            //if false then prompt for proper character 
+            //if true then below
+
+            // isLetter(userGuess) ;
+            // console.log(isLetter(userGuess));
+
+            //call isLetterInWord function to validate if it's a letter(s) located }within the guessWord
+            //if true then replace dashed line on the screen in place of correct letter(s)        
+            
+                for (var b = 0; b <= guessWord.length; b++) {
+                    console.log(b);
+                    
+                    var totalGuesses = 14- parseInt(guessWord.lenth) ; 
+                    
+                    
+
+                    if (userGuess === guessWord[b]) {
+                        
+                        //   //correct guess
+                        // then put guess word into each place of userGuess output 
+                        wordLine[b] = guessWord[b];
+
+
+                        var userAnswer = "";
+
+                        for (i = 0; i < guessWord.length; i++) {
+                            userAnswer = userAnswer + wordLine[i] + " ";
+                        }
+                        document.getElementById("wordDashes").innerHTML = userAnswer;
+                        isMatch= true; 
+                    } 
+                     
+
+                }
+                if (!isMatch){
+                wrongGuesses.push(userGuess);
+                document.getElementById("wrongGuessLetters").innerHTML = wrongGuesses;
+                };
+                } );
+                // else {
+             
+            //}
+
+            // if (userGuess === guessWord[b])
+            //document.getElementById("wrongGuessLetters").innerHTML = wrongGuesses;
+           
+            //if false> then add incorrect letter to the div id="wrongLetters" 
+            //decrement the counter in div="hangman field"
+
+
+        
+        
+
+
+        function guessWordDashLines(guessWord) {
+            var randomLength = guessWord.length;
+            var userAnswer = " ";
+
+            for (i = 0; i < guessWord.length; i++) {
+                wordLine[i] = "_";
+                userAnswer = userAnswer + wordLine[i] + " ";
+            }
+
+
+            // document.getElementById("#currentWord").innerText="wordLine";
+            document.getElementById("wordDashes").innerHTML = userAnswer;
+        }
+
+
+        function isLetter(userGuess) {
+            var letters = /^[A-Za-z]+$/;
+            if (userGuess.valueOf().match(letters)) {
+
+                return true;
+            }
+            else {
+                alert('Please input ONE alphabet letter only.');
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!-- //psuedo code  -->
+<!-- load page, capture the word for user to guess (eventually this would be an array that is randomally created)
+    have the castle background 
+    give the user the option to play music 
+take the guess word and generate the number of spaces for the number of letters (this is an array to hold both the dashes and the correct letters)
+get user input from keystroke assign to variable 
+first check to see if the key is a letter by calling isLetter() 
+return true to continue, return false to prompt user to try again 
+next check to see if the key stroke letter from the user is in the word to guess 
+    if it is one of the letters then change the dash into the correct letter. 
+        in the div that keeps track of the score decrement the number for the user 
+            state how many guesses 
+            when user gets all the letters then "you win"
+
+    if it is not one of the letters then show the wrong letters in the wrong letter div on the screen  -->

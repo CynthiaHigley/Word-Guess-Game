@@ -1,45 +1,23 @@
-#title {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 50px;
+
+/* user css to 
+format the container
+set the divs to place elements on screen  */
+
+#top{
     color:blue;
     text-align: center;
-    /* margin-left: auto;
-    margin-right: auto; */
 }
-#gameField{
-    background-color: aqua;
+.gemCollection {
+    align: center;
 }
-#currentWord, #wordDashes {
-    text-align: center;
-    border: 3px solid green;
-    width: 500px;
-    margin: auto;
-    border: 3px solid #73AD21;
-    background-color: antiquewhite;
-    font-size:40px; 
+#instructions{
+    text-align: left;
+    background-color: white;
+    font-size:15px; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
-#userInput, #score {
-    text-align: center;
-    border: 3px solid green;
-    width: 500px;
-    margin: auto;
-    border: 3px solid #73AD21;
-    background-color: antiquewhite;
-}
-#hangman {
-    text-align: center;
-    border: 3px solid green;
-    width: 500px;
-    margin: auto;
-    border: 3px solid #73AD21;
-}
-#wrongLetters, #wrongGuessLetters {
-    text-align: center;
-    border: 3px solid green;
-    width: 500px;
-    margin: auto;
-    border: 3px solid #73AD21;
-    background-color: antiquewhite;
-    font-size:40px; 
+#crystalScore, #redScore, #blueScore, #orangeScore{
+    height:3em; 
+    width:8em;
 }
